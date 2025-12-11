@@ -24,8 +24,11 @@
     justify-content: center;
     align-items: top;
     overflow: hidden;
+    background-color: var(--accent_colour);
+    
 }
 
-.tap_nav a{
-    color: var(--secondary_colour);
+a{
+    color: var(--secondary_text);
+    text-decoration: none;
 }
