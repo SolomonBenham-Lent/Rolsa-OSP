@@ -1,0 +1,31 @@
+:root{
+    --primary_colour: #A7C957;
+    --secondary_colour: #BDD781;
+    --accent_colour: #F2E8CF;
+
+    --primary_text: #386641;
+    --secondary_text: #181818;
+    --accent-text: #ffffff;
+
+    --card_colour_1: #479DBC;
+    --card_colour_2: #408EAA;
+    --card_colour_3: #35768D;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+
+.top_nav{
+    display: flex;
+    justify-content: center;
+    align-items: top;
+    overflow: hidden;
+}
+
+.tap_nav a{
+    color: var(--secondary_colour);
+}
