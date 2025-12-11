@@ -1,17 +1,20 @@
 import { useState } from 'react'
 import './App.css'
 import { Routes, Route, Link } from "react-router-dom"
-import Home from "./home.jsx"
+import Home from "./pages/home.jsx"
+import Calculator from './pages/calculator.jsx'
 
 function App() {
   return (
     <>
       <nav>
-        <Link to="/homeTest">home link</Link>
+        <Link to="pages/home">Home Link</Link>
+        <Link to="/calculator">CO2 Calculator Link</Link>
       </nav>
       
       <Routes>
-        <Route path="/homeTest" element={<Home/>}/>
+        <Route path="pages/home" element={<Home/>}/>
+        <Route path="/calculator" element={<Calculator/>}/>
       </Routes>
     </>
   )
