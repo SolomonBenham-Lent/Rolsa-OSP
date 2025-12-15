@@ -6,7 +6,8 @@ import Calculator from '../../pages/calculator.jsx'
 import Booking from '../../pages/booking.jsx'
 import logo from '../../assets/rolsa_logo.svg'
 import LoginPopup from './Login_pop_up.jsx'
-
+import NavDropdown from './drop_down.jsx'
+import Tracker from "../../pages/tracker.jsx"
 
 
 const Navbar = () => {
@@ -25,7 +26,7 @@ const Navbar = () => {
 
         <Link to="home">Home</Link>
         <Link to="booking">Booking</Link>
-        <Link to="calculator">CO2 Calculator</Link>
+        <NavDropdown/>
         <LoginPopup/>
       </nav>
       
@@ -33,6 +34,7 @@ const Navbar = () => {
         <Route path="home" element={<Home/>}/>
         <Route path="booking" element={<Booking/>}/>
         <Route path="calculator" element={<Calculator/>}/>
+        <Route path="tracker" element={<Tracker/>}/>
       </Routes>
     </>
   )
