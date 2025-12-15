@@ -115,46 +115,48 @@ function Calculator() {
 
   return (
     <>
-      <h1>Calculator Page</h1>
-      <div className="calcContainer">
-        <Input
-          label="Miles Driven Per Month"
-          placeholder={"e.g. 500"}
-          value={miles}
-          setValue={setMiles}
-        />
-        <br />
-        <Input
-          label="Electricity Usage (kWh per month)"
-          placeholder={"e.g. 900"}
-          value={elec}
-          setValue={setElec}
-        />
-        <br />
-        <Input
-          label="Flights Per Month"
-          placeholder={"e.g. 2"}
-          value={flights}
-          setValue={setFlights}
-        />
-        <br />
-        <Input
-          label="Meat-Based Meals Per Month"
-          placeholder={"e.g. 60"}
-          value={meals}
-          setValue={setMeals}
-        />
-        <br />
-        <Calculate
-          miles={miles}
-          setMiles={setMiles}
-          elec={elec}
-          setElec={setElec}
-          flights={flights}
-          setFlights={setFlights}
-          meals={meals}
-          setMeals={setMeals}
-        />
+      <div className="calc_spacer">
+        <h1>Calculator Page</h1>
+        <div className="calcContainer">
+          <Input
+            label="Miles Driven Per Month"
+            placeholder={"e.g. 500"}
+            value={miles}
+            setValue={setMiles}
+          />
+          <br />
+          <Input
+            label="Electricity Usage (kWh per month)"
+            placeholder={"e.g. 900"}
+            value={elec}
+            setValue={setElec}
+          />
+          <br />
+          <Input
+            label="Flights Per Month"
+            placeholder={"e.g. 2"}
+            value={flights}
+            setValue={setFlights}
+          />
+          <br />
+          <Input
+            label="Meat-Based Meals Per Month"
+            placeholder={"e.g. 60"}
+            value={meals}
+            setValue={setMeals}
+          />
+          <br />
+          <Calculate
+            miles={miles}
+            setMiles={setMiles}
+            elec={elec}
+            setElec={setElec}
+            flights={flights}
+            setFlights={setFlights}
+            meals={meals}
+            setMeals={setMeals}
+          />
+        </div>
       </div>
     </>
   );
