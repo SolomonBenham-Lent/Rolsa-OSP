@@ -1,17 +1,40 @@
-import react from "react"
+import React from "react"
+import { Routes, Route, Link } from "react-router-dom"
 import './Navbar.css'
+import Home from "../../pages/home.jsx"
+import Calculator from '../../pages/calculator.jsx'
+import Booking from '../../pages/booking.jsx'
+import logo from '../../assets/rolsa_logo.svg'
+import LoginPopup from './Login_pop_up.jsx'
+
+
 
 const Navbar = () => {
   return (
-    <header>
-        <div className="top_nav">
-          <a href="main page" target="_blank"></a>
-          <a href="co2">Co2 Calculator</a>
-          <a href="tracker">Tracker</a>
-          <a href="booking">Booking</a>
-          <a href="login">Login</a>
+    <>
+      <nav className="top_nav">
+
+        <div className="logo">
+
+          <Link to="home">
+            <img src={logo} alt="Rolsa Logo"/>
+            <label htmlFor="home"></label>
+          </Link>
+
         </div>
-    </header>
+
+        <Link to="home">Home</Link>
+        <Link to="booking">Booking</Link>
+        <Link to="calculator">CO2 Calculator</Link>
+        <LoginPopup/>
+      </nav>
+      
+      <Routes>
+        <Route path="home" element={<Home/>}/>
+        <Route path="booking" element={<Booking/>}/>
+        <Route path="calculator" element={<Calculator/>}/>
+      </Routes>
+    </>
   )
 }
 

@@ -5,7 +5,7 @@
 
     --primary_text: #386641;
     --secondary_text: #181818;
-    --accent-text: #ffffff;
+    --accent_text: #ffffff;
 
     --card_colour_1: #479DBC;
     --card_colour_2: #408EAA;
@@ -21,8 +21,9 @@
 
 .top_nav{
     display: flex;
-    justify-content: center;
-    align-items: top;
+    justify-content: left;
+    padding: 15px 20px;
+    gap:2rem;
     overflow: hidden;
     background-color: var(--accent_colour);
     
@@ -32,3 +33,61 @@ a{
     color: var(--secondary_text);
     text-decoration: none;
 }
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo img {
+    padding:-2rem;
+    margin: -2rem;
+    width: 5rem;
+    height: auto;
+    display: block;
+}
+
+.login-btn {
+    background-color: var(--primary_colour);
+    color: var(--accent-text);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Login */
+
+.popup-box { 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    margin-top: 15rem;
+    background: var(--accent_colour);
+    padding:1rem 1.25rem;
+    border: 1rem solid var(--primary_colour);
+    border-radius:8px;
+    width:30rem;
+    max-width:calc(100% - 2rem);
+    height: 30rem;
+    max-height: calc(100% - 2rem);
+}
+
+.popup-box .box { 
+    background-color: var(--accent_text);
+    padding:1rem 1.25rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    border-radius: 8px;
+    width:30rem;
+    max-width:calc(100% - 2rem);
+    height: 30rem;
+    max-height: calc(100% - 2rem);
+}
+
+.close-icon {
+    position:absolute;
+    right:10px; top:8px;
+    cursor:pointer}
