@@ -17,21 +17,40 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: bold;
 }
 
-.top_nav{
-    display: flex;
+.top_nav {
     justify-content: left;
-    padding: 15px 20px;
-    gap:2rem;
-    overflow: hidden;
+    position: fixed;
+    display: flex;
+    align-items: center;
+
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 60px;
+
     background-color: var(--accent_colour);
-    
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    padding: 15px 20px;
+    z-index: 1000;
+    gap: 1rem;
+    overflow: hidden;
 }
 
-a{
+
+a {
+    padding: 20px 20px;
     color: var(--secondary_text);
     text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+a:hover {
+    background-color: var(--secondary_colour);
 }
 
 .logo {
@@ -41,14 +60,13 @@ a{
 }
 
 .logo img {
-    padding:-2rem;
-    margin: -2rem;
     width: 5rem;
     height: auto;
     display: block;
 }
 
 .login-btn {
+    align-items: flex-end;
     background-color: var(--primary_colour);
     color: var(--accent-text);
     border: none;
@@ -58,6 +76,12 @@ a{
     transition: background-color 0.3s ease;
 }
 
+.login-popup-wrapper { 
+    margin-left: auto;
+    display:flex;
+    align-items:center;
+}
+
 /* Login */
 
 .popup-box { 
@@ -65,22 +89,25 @@ a{
     justify-content: center;
     align-items: center;
     position: fixed;
+    padding: 1rem 1.25rem;
     margin-top: 15rem;
     background: var(--accent_colour);
-    padding:1rem 1.25rem;
-    border: 1rem solid var(--primary_colour);
-    border-radius:8px;
+    box-shadow: 0 0px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+
     width:30rem;
     max-width:calc(100% - 2rem);
     height: 30rem;
     max-height: calc(100% - 2rem);
+    z-index: 1000;
+
 }
 
 .popup-box .box { 
     background-color: var(--accent_text);
-    padding:1rem 1.25rem;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    padding: 1rem 1.25rem;
     border-radius: 8px;
+
     width:30rem;
     max-width:calc(100% - 2rem);
     height: 30rem;
@@ -89,5 +116,29 @@ a{
 
 .close-icon {
     position:absolute;
-    right:10px; top:8px;
+    right:10px; top:0px;
+    font-size: 2rem;
     cursor:pointer}
+
+
+.login-backdrop {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.2);
+    z-index: 1100;
+    padding: 1rem;
+}
+
+
+.login-backdrop .popup-box {
+    position: relative !important;
+    margin: 0 !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    width: min(95vw, 30rem);
+    max-height: calc(100vh - 2rem);
+}
