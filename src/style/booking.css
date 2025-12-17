@@ -1,8 +1,29 @@
-:root {
+
+:root{
+    --primary_colour: #A7C957;
+    --secondary_colour: #BDD781;
+    --accent_colour: #F2E8CF;
+
+    --primary_text: #386641;
+    --secondary_text: #181818;
+    --accent_text: #ffffff;
+
+    --card_colour_1: #479DBC;
+    --card_colour_2: #408EAA;
+    --card_colour_3: #35768D;
+
   --product-button-bg: #ececec;
   --input-border: #ccc;
   --input-bg: #ffffff;
   --section-bg: #f9f9f9;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: bold;
 }
 
 /* Main Booking Container */
@@ -154,7 +175,7 @@
 }
 /*book*/
 .bookButton {
-  background-color: #a7c957;
+  background-color: var(--primary_text);
   color: white;
   padding: 12px 30px;
   border: none;
@@ -168,7 +189,7 @@
 }
 
 .bookButton:hover {
-  background-color: #386641;
+  background-color: var(--secondary_colour);
 }
 
 .bookButton:active {
