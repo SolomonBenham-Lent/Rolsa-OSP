@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import './Navbar.css'
+import { Link } from "react-router-dom";
+import GoogleLogin from "./GoogleLogin";
 
 function LoginPopup() {
   const [seen, setSeen] = useState(false);
@@ -31,18 +33,20 @@ function Popup({ togglePopup }) {
             <span className="close-icon" onClick={togglePopup}>x</span>
             <form onSubmit={handleLogin}>
             <label>
-                Username:
+                <p>Username:</p>
                 <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
             </label>
             <br />
             <label>
-                Password:
+                <p>Password:</p>
                 <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
             </label>
             <br />
             <button type="submit">Login</button>
+            <div className="google-btn-container">
+                <GoogleLogin/>
+            </div>
             </form>
-            <button onClick={togglePopup}>Close</button>
         </div>
         </div>
     </div>

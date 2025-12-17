@@ -51,6 +51,12 @@ a {
 
 a:hover {
     background-color: var(--secondary_colour);
+    cursor: pointer;
+}
+
+.logo :hover {
+    cursor: pointer;
+    background-color: transparent;
 }
 
 .logo {
@@ -143,19 +149,65 @@ a:hover {
     max-height: calc(100vh - 2rem);
 }
 
+.login-backdrop label {
+    display: block;
+    align-items: left;
+    justify-content: left;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: var(--secondary_text);
+}
+
+
+.login-backdrop input {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+.login-backdrop button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: var(--primary_colour);
+    color: var(--secondary_text);
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.login-backdrop p {
+    display: flex;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: var(--secondary_text);
+}
+
+.login-backdrop form {
+    height: 100%;
+    gap: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: left;
+}
+
+/* Dropdown in top nav */
+
 .dropbtn {
     padding: 20px 20px;
     background-color: var(--accent_colour);
     border: none;
     text-decoration: none;
     transition: background-color 0.3s;
-    font-weight: 700;
-    font-family: inherit;
-
 }
 
 .dropbtn:hover {
     background-color: var(--secondary_colour);
+    cursor: pointer;
 }
 
 .dropdown {
@@ -169,7 +221,13 @@ a:hover {
     top: 100%;
     left: 0;
     background-color: var(--accent_colour);
-    min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 2000;
 }
+
+.dropdown-content a {
+    padding: 15px 20px;
+    text-decoration: none;
+    display: block;
+}
+

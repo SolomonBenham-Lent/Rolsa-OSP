@@ -17,7 +17,7 @@ const Navbar = () => {
 
         <div className="logo">
 
-          <Link to="home">
+          <Link to="home" className="logo">
             <img src={logo} alt="Rolsa Logo"/>
             <label htmlFor="home"></label>
           </Link>
