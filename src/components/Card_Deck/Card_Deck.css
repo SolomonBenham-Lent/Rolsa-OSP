@@ -1,0 +1,30 @@
+:root{
+    --primary_colour: #A7C957;
+    --secondary_colour: #BDD781;
+    --accent_colour: #F2E8CF;
+
+    --primary_text: #386641;
+    --secondary_text: #181818;
+    --accent_text: #ffffff;
+
+    --card_colour_1: #479DBC;
+    --card_colour_2: #408EAA;
+    --card_colour_3: #35768D;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: bold;
+}
+
+.card_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100rem;
+    min-height: 100rem;
+    background-color: var(--accent_colour);
+}

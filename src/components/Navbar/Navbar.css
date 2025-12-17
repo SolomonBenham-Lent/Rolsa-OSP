@@ -74,7 +74,7 @@ a:hover {
 .login-btn {
     align-items: flex-end;
     background-color: var(--primary_colour);
-    color: var(--accent-text);
+    color: var(--secondary_text);
     border: none;
     padding: 8px 16px;
     border-radius: 4px;
