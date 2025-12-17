@@ -1,4 +1,4 @@
-import {usestate} from 'react';
+import {usestate, useEffect} from 'react';
 import Card_Deck from '../components/Card_Deck/Card_Deck.jsx';
 
 function Home() {
