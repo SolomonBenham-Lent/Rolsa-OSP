@@ -10,7 +10,7 @@ function NavDropdown() {
     const toggleDropdown = () => setIsOpen(!isOpen); 
     return (
         <div className="dropdown">
-            <button className="dropbtn" onClick={toggleDropdown}>Co2</button>
+            <button className="dropbtn" onClick={toggleDropdown}>Co2 ▼</button>
             {isOpen && (
 
                 <div className="dropdown-content">
