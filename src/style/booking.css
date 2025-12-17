@@ -1,0 +1,232 @@
+:root {
+  --product-button-bg: #ececec;
+  --input-border: #ccc;
+  --input-bg: #ffffff;
+  --section-bg: #f9f9f9;
+}
+
+/* Main Booking Container */
+.bookingContainer {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* Section Styling */
+.section {
+  margin-bottom: 40px;
+  padding: 30px;
+  background-color: var(--section-bg);
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.section h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 1.3em;
+  color: #333;
+}
+
+/* Products Section */
+.productContainer {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+  padding: 30px;
+  background-color: var(--section-bg);
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.solarButton,
+.evButton,
+.smartHomeButton {
+  flex: 1;
+  min-width: 120px;
+  max-width: 200px;
+  background-color: var(--product-button-bg);
+  color: #333;
+  padding: 15px 20px;
+  border: 2px solid #999;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.solarButton:hover,
+.evButton:hover,
+.smartHomeButton:hover {
+  background-color: #d4d4d4;
+  border-color: #666;
+}
+
+.solarButton.active,
+.evButton.active,
+.smartHomeButton.active {
+  background-color: #a7c957;
+  color: white;
+  border-color: #386641;
+}
+
+/* Info Section */
+.infoContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-bottom: 40px;
+  padding: 30px;
+  background-color: var(--section-bg);
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.nameInput,
+.emailInput {
+  grid-column: auto;
+}
+
+.phoneInput {
+  grid-column: 1;
+}
+
+.nameInput,
+.emailInput,
+.phoneInput {
+  width: 100%;
+  padding: 12px;
+  margin: 0;
+  box-sizing: border-box;
+  border: 2px solid var(--input-border);
+  border-radius: 6px;
+  background-color: var(--input-bg);
+  font-size: 1em;
+  font-family: inherit;
+  transition: border-color 0.2s ease;
+}
+
+.nameInput:focus,
+.emailInput:focus,
+.phoneInput:focus {
+  outline: none;
+  border-color: #a7c957;
+  box-shadow: 0 0 0 3px rgba(167, 201, 87, 0.1);
+}
+
+.bookingLabel {
+  font-weight: bold;
+  margin-bottom: 8px;
+  display: block;
+  color: #333;
+  font-size: 0.95em;
+}
+/*date*/
+.dateInput {
+  width: 100%;
+  padding: 12px;
+  margin: 0;
+  box-sizing: border-box;
+  border: 2px solid var(--input-border);
+  border-radius: 6px;
+  background-color: var(--input-bg);
+  font-size: 1em;
+  font-family: inherit;
+  transition: border-color 0.2s ease;
+}
+
+.dateInput:focus {
+  outline: none;
+  border-color: #a7c957;
+  box-shadow: 0 0 0 3px rgba(167, 201, 87, 0.1);
+}
+
+.dateContainer {
+  display: block;
+  margin-bottom: 40px;
+  padding: 30px;
+  background-color: var(--section-bg);
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+/*book*/
+.bookButton {
+  background-color: #a7c957;
+  color: white;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.bookButton:hover {
+  background-color: #386641;
+}
+
+.bookButton:active {
+  transform: scale(0.98);
+}
+
+.confirmationMessage {
+  font-size: 1.1em;
+  margin-top: 16px;
+  font-weight: bold;
+  color: #386641;
+}
+
+.errorMessage {
+  color: #c41e3a;
+  font-size: 0.95em;
+  margin-top: 12px;
+  font-weight: 500;
+}
+.bookingLabel {
+  font-weight: bold;
+  margin-bottom: 8px;
+  display: block;
+  color: #333;
+  font-size: 0.95em;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .bookingContainer {
+    padding: 20px 15px;
+  }
+
+  .section {
+    padding: 20px;
+    margin-bottom: 30px;
+  }
+
+  .productContainer {
+    gap: 10px;
+  }
+
+  .solarButton,
+  .evButton,
+  .smartHomeButton {
+    min-width: 100px;
+    max-width: 100%;
+    flex: 1 1 calc(33.333% - 7px);
+    padding: 12px 10px;
+    font-size: 0.9em;
+  }
+
+  .infoContainer {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .phoneInput {
+    grid-column: 1;
+  }
+}
