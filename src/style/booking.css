@@ -10,30 +10,17 @@
   max-width: 900px;
   margin: 0 auto;
   padding: 40px 20px;
-}
-
-/* Section Styling */
-.section {
-  margin-bottom: 40px;
-  padding: 30px;
-  background-color: var(--section-bg);
-  border: 1px solid #ddd;
-  border-radius: 8px;
-}
-
-.section h2 {
-  margin-top: 0;
-  margin-bottom: 20px;
-  font-size: 1.3em;
-  color: #333;
+  background-color: #f5f5f5;
+  border-radius: 10px;
 }
 
 /* Products Section */
 .productContainer {
   display: flex;
-  gap: 15px;
-  justify-content: center;
   flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 15px;
   margin-bottom: 40px;
   padding: 30px;
   background-color: var(--section-bg);
@@ -41,21 +28,36 @@
   border-radius: 8px;
 }
 
+.productTitle {
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: 0;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #386641;
+  width: 100%;
+  order: 1;
+}
+
 .solarButton,
 .evButton,
 .smartHomeButton {
-  flex: 1;
-  min-width: 120px;
-  max-width: 200px;
+  flex: 0 0 180px;
+  width: 180px;
+  height: 60px;
   background-color: var(--product-button-bg);
   color: #333;
-  padding: 15px 20px;
+  padding: 0;
   border: 2px solid #999;
   border-radius: 6px;
   cursor: pointer;
   font-size: 1em;
   font-weight: 500;
   transition: all 0.2s ease;
+  order: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .solarButton:hover,
@@ -68,21 +70,40 @@
 .solarButton.active,
 .evButton.active,
 .smartHomeButton.active {
-  background-color: #a7c957;
-  color: white;
-  border-color: #386641;
+  border-color: #a7c957;
+  box-shadow: 0 0 0 3px rgba(167, 201, 87, 0.1);
 }
 
 /* Info Section */
 .infoContainer {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   gap: 15px;
   margin-bottom: 40px;
   padding: 30px;
   background-color: var(--section-bg);
   border: 1px solid #ddd;
   border-radius: 8px;
+}
+
+.infoTitle {
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: 0;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #386641;
+  width: 100%;
+  order: -1;
+}
+
+.infoInputWrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  width: 100%;
+  order: 1;
 }
 
 .nameInput,
@@ -154,7 +175,7 @@
 }
 /*book*/
 .bookButton {
-  background-color: #a7c957;
+  background-color: #bdd781;
   color: white;
   padding: 12px 30px;
   border: none;
@@ -168,32 +189,11 @@
 }
 
 .bookButton:hover {
-  background-color: #386641;
+  background-color: #a7c957;
 }
 
 .bookButton:active {
   transform: scale(0.98);
-}
-
-.confirmationMessage {
-  font-size: 1.1em;
-  margin-top: 16px;
-  font-weight: bold;
-  color: #386641;
-}
-
-.errorMessage {
-  color: #c41e3a;
-  font-size: 0.95em;
-  margin-top: 12px;
-  font-weight: 500;
-}
-.bookingLabel {
-  font-weight: bold;
-  margin-bottom: 8px;
-  display: block;
-  color: #333;
-  font-size: 0.95em;
 }
 
 /* Responsive Design */
