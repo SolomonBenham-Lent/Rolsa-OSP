@@ -5,26 +5,61 @@
   text-align: center;
 }
 
+:root{
+    --primary_colour: #A7C957;
+    --secondary_colour: #BDD781;
+    --accent_colour: #F2E8CF;
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+    --primary_text: #386641;
+    --secondary_text: #181818;
+    --accent_text: #ffffff;
+
+    --card_colour_1: #479DBC;
+    --card_colour_2: #408EAA;
+    --card_colour_3: #35768D;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: bold;
 }
 
-.card {
-  padding: 2em;
+body {
+    background-color: var(--secondary_colour);
+    color: var(--primary_text);
+    padding-top: 60px;
 }
 
-.read-the-docs {
-  color: #888;
+.background_image {
+    position: fixed;
+    top: -35rem;
+    left: 0;
+    width: 100%;
+    height: auto;
+    z-index: -1;
+}
+
+
+@media screen and (min-width: 1920px) {
+    .background_image {
+        top: -75rem;
+    }
+  
+}
+
+@media screen and (max-width: 1024px) {
+    .background_image {
+        top: -30rem;
+    }
+  
+}
+
+@media screen and (max-width: 768px) {
+    .background_image {
+        top: 0;
+    }
+  
 }

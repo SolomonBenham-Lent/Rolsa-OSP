@@ -22,7 +22,8 @@
 
 .footerbar {
     display: flex;
-    position: absolute;
+    flex-wrap: wrap;
+    position: fixed;
     align-items: center;
     justify-content:center;
     bottom: 0;
@@ -34,13 +35,27 @@
     background-color: var(--accent_colour);
 
     padding: 15px 20px;
+    padding-top: 0px;
     z-index: 1000;
     gap: 1rem;
-    overflow: visible;
 }
-a {
-    padding: 20px 20px;
+.footerbar a{
+    display: flex;
     color: var(--secondary_text);
     text-decoration: none;
     transition: background-color 0.3s;
+}
+
+
+@media (max-width: 600px) {
+  .footerbar {
+    flex-direction: column; 
+    height: auto; 
+    padding: 1rem;
+  }
+
+  .footerbar a {
+    width: 100%;
+    padding: 0.75rem;
+  }
 }
