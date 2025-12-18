@@ -11,14 +11,16 @@ function SelectProduct({
 }) {
   return (
     <>
-      <div>Select Product</div>
       <button
         className="solarButton"
+        id="solar"
         onClick={() => {
-          if (selectSolar == false) {
+          if (!selectSolar) {
             setSelectSolar(true);
+            solar.classList.toggle("active");
           } else {
             setSelectSolar(false);
+            solar.classList.toggle("active");
           }
         }}
       >
@@ -26,11 +28,14 @@ function SelectProduct({
       </button>
       <button
         className="evButton"
+        id="ev"
         onClick={() => {
-          if (selectEV == false) {
+          if (!selectEV) {
             setSelectEV(true);
+            ev.classList.toggle("active");
           } else {
             setSelectEV(false);
+            ev.classList.toggle("active");
           }
         }}
       >
@@ -38,24 +43,27 @@ function SelectProduct({
       </button>
       <button
         className="smartHomeButton"
+        id="smartHome"
         onClick={() => {
-          if (selectSmartHome == false) {
+          if (!selectSmartHome) {
             setSelectSmartHome(true);
+            smartHome.classList.toggle("active");
           } else {
             setSelectSmartHome(false);
+            smartHome.classList.toggle("active");
           }
         }}
       >
         Smart Home Energy Management System
       </button>
 
-      <div>
+      {/* <div>
         {selectSolar && <div>Solar Panel Selected</div>}
         {selectEV && <div>EV Charging Station Selected</div>}
         {selectSmartHome && (
           <div>Smart Home Energy Management System Selected</div>
         )}
-      </div>
+      </div> */}
     </>
   );
 }
@@ -159,7 +167,7 @@ function Booking() {
         <h1>Booking page</h1>
         <br />
         <div className="productContainer">
-          {/* <h2>Select a Product</h2> */}
+          <h2 className="productTitle">Select a Product</h2>
           <SelectProduct
             selectSolar={selectSolar}
             setSelectSolar={setSelectSolar}
@@ -171,7 +179,7 @@ function Booking() {
         </div>
         <br />
         <div className="infoContainer">
-          <h2>Your Information</h2>
+          <h2 className="infoTitle">Your Information</h2>
           <Information
             name={name}
             setName={setName}
@@ -183,7 +191,7 @@ function Booking() {
         </div>
         <br />
         <div className="scheduleContainer">
-          <h2>Schedule Consultation</h2>
+          <h2 className="scheduleTitle">Schedule Consultation</h2>
           <Schedule datetime={datetime} setDatetime={setDatetime} />
         </div>
         <br />
