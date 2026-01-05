@@ -1,0 +1,130 @@
+@import './calculator.css';
+@import './booking.css';
+
+:root{
+  --tracker-bar-bg: #ffffff;
+  --tracker-bar-border: #e6e6e6;
+}
+
+/* Track entries and bars */
+.trackerEntry {
+  background: #ffffff;
+  border: 1px solid var(--tracker-bar-border);
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.trackerBar {
+  background: var(--tracker-bar-bg);
+  height: 18px;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--tracker-bar-border);
+}
+
+.trackerBarFill {
+  height: 100%;
+  background: var(--secondary_colour);
+}
+
+.btn-delete {
+  background: #ff6b6b;
+  color: #fff;
+  border: none;
+  padding: 6px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Summary boxes (today / 7-day / average) */
+.summaryGrid {
+  display: flex;
+  gap: 12px;
+  align-items: stretch;
+}
+
+.summaryBox {
+  background: #ffffff;
+  border: 1px solid var(--tracker-bar-border);
+  border-radius: 8px;
+  padding: 12px 14px;
+  min-width: 0;
+  flex: 1;
+}
+
+.summaryTitle {
+  /* match calculator label styling; use a darker green and bold */
+  font-size: 0.95rem;
+  color: var(--primary_colour);
+  margin-bottom: 6px;
+  font-weight: 800;
+}
+
+.summaryValue {
+  /* match calculator total CO2 styling */
+  font-size: 1.2em;
+  font-weight: 700;
+  color: var(--primary_text);
+}
+
+.trackerForm {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.trackerForm label {
+  display: block;
+  font-weight: 700;
+  color: var(--primary_text);
+  margin-bottom: 4px;
+}
+
+.trackerForm select,
+.trackerForm input {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #dcdcdc;
+  border-radius: 6px;
+  box-sizing: border-box;
+  background: #fff;
+}
+
+
+::placeholder { font-weight: 700; color: inherit; }
+:-ms-input-placeholder { font-weight: 700; }
+::-ms-input-placeholder { font-weight: 700; }
+.trackerForm input::placeholder, .trackerForm textarea::placeholder { font-weight: 700; }
+
+.trackerForm select { font-weight: 700; }
+.trackerForm option[disabled] { font-weight: 700; }
+
+.calcOutput {
+  background-color: #ffffff !important;
+  padding: 12px !important;
+  border: 1px solid #ddd !important;
+  border-radius: 8px !important;
+}
+
+.trackerForm button[type="submit"] {
+  width: fit-content;
+  padding: 10px 14px;
+  border-radius: 6px;
+  border: none;
+  background: var(--secondary_colour);
+  color: var(--secondary_text);
+  cursor: pointer;
+  display: block;
+  margin: 10px auto 0;
+}
+
+.trackercontainer {
+  max-width: 800px;
+  margin: 12px auto 0;
+  padding: 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
