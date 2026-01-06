@@ -9,6 +9,19 @@ import LoginPopup from "./Login_pop_up.jsx";
 import NavDropdown from "./drop_down.jsx";
 import Tracker from "../../pages/tracker.jsx";
 import CreateAccountPopup from "./create_account_pop_up.jsx";
+import ham_menu from "../../assets/menu_icon.svg"
+
+function hamburger_menu(){
+  const[seen, setseen]= usestate(false);
+  const toggle_menu = () => setseen((s) => !s);
+
+  return( 
+    <div className="burger_wrapper">
+      <img scr={ham_menu} alt="hambuger menu" className="ham_menu"/>
+    </div>
+  )
+
+}
 
 const Navbar = () => {
   return (
@@ -20,13 +33,14 @@ const Navbar = () => {
             <label htmlFor="home"></label>
           </Link>
         </div>
-
         <Link to="home">Home</Link>
         <Link to="booking">Booking</Link>
-        <NavDropdown />
-        <LoginPopup />
-        <CreateAccountPopup />
+        <NavDropdown/>
+        <div className="nav_gap"/>
+        <LoginPopup/>
+        <CreateAccountPopup/>
       </nav>
+
 
       <Routes>
         <Route path="home" element={<Home />} />

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
-import GoogleLogin from "./GoogleLogin";
 import CreateAccountPopup from "./create_account_pop_up";
 
 function LoginPopup() {
@@ -22,12 +21,15 @@ function Popup({ togglePopup }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  function handleLogin(e) {
-    e.preventDefault();
+  function handleLogin(valid) {
     console.log("Username:", username);
     console.log("Password:", password);
-    togglePopup();
-  }
+    if (valid){
+      togglePopup();
+    } else
+      alert("under progress need backend database")
+    }
+  
 
   return (
     <div className="login-backdrop">
@@ -36,7 +38,16 @@ function Popup({ togglePopup }) {
           <span className="close-icon" onClick={togglePopup}>
             x
           </span>
-          <form onSubmit={handleLogin}>
+
+          <form 
+            onSubmit={(e) => {
+              e.preventDefault();
+              handleLogin(
+                validation(username, password)
+              );
+            }}
+          >
+
             <label>
               <p>Username:</p>
               <input
@@ -62,5 +73,4 @@ function Popup({ togglePopup }) {
     </div>
   );
 }
-
 export default LoginPopup;

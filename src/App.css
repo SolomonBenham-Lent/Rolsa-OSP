@@ -50,16 +50,37 @@ body {
   
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1280px){
     .background_image {
-        top: -30rem;
+        top: -35rem;
+    }
+  
+}
+
+@media screen and ((max-width: 1024px)){
+    .background_image {
+        top: 0rem;
+    }
+  
+}
+
+@media screen and (min-width: 820px) and (max-width: 912px) {
+    .background_image {
+        top: 0rem;
     }
   
 }
 
 @media screen and (max-width: 768px) {
     .background_image {
-        top: 0;
+        top: 0rem;
+    }
+  
+}
+
+@media screen and (max-width: 480px) {
+    .background_image {
+        top: 0rem;
     }
   
 }

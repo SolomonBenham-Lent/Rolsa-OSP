@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
 
+
 function CreateAccountPopup({ onCreateAccountOpen }) {
   const [seen, setSeen] = useState(false);
   const togglePopup = () => {
