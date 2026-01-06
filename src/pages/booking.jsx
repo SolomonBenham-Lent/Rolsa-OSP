@@ -96,6 +96,18 @@ function Information({ name, setName, email, setEmail, phone, setPhone }) {
   );
 }
 
+function Address({ address, setAddress }) {
+  return (
+    <input
+      className="addressInput"
+      type="text"
+      placeholder="Address"
+      value={address}
+      onChange={(e) => setAddress(e.target.value)}
+    />
+  );
+}
+
 function Schedule({ datetime, setDatetime }) {
   const tomorrow = new Date();
   tomorrow.setDate(tomorrow.getDate() + 1);
@@ -159,6 +171,7 @@ function Booking() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+  const [address, setAddress] = useState("");
   const [datetime, setDatetime] = useState("");
 
   return (
@@ -190,7 +203,13 @@ function Booking() {
           />
         </div>
         <br />
+        <div className="addressContainer">
+          <h2 className="addressTitle">Your Address</h2>
+          <Address address={address} setAddress={setAddress} />
+        </div>
+        <br />
         <div className="scheduleContainer">
+          <br />
           <h2 className="scheduleTitle">Schedule Consultation</h2>
           <Schedule datetime={datetime} setDatetime={setDatetime} />
         </div>
@@ -202,6 +221,7 @@ function Booking() {
           name={name}
           email={email}
           phone={phone}
+          address={address}
           datetime={datetime}
         />
       </div>
