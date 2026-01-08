@@ -104,20 +104,33 @@ a:hover {
 
   width: 30rem;
   max-width: calc(100% - 2rem);
-  height: 30rem;
-  max-height: calc(100% - 2rem);
+  /* allow the popup to size to its content up to viewport height */
+  max-height: calc(100vh - 2rem);
   z-index: 1000;
 }
 
 .popup-box .box {
+  position: relative;
   background-color: var(--accent_text);
   padding: 1rem 1.25rem;
   border-radius: 8px;
 
   width: 30rem;
   max-width: calc(100% - 2rem);
-  height: 30rem;
-  max-height: calc(100% - 2rem);
+  /* let box grow to fit its contents */
+  max-height: calc(100vh - 4rem);
+}
+
+/* The white box uses normal flow; form is non-scrolling so all fields remain visible */
+.popup-box .box {
+  display: block;
+}
+
+.popup-box .box form button[type="submit"] {
+  position: static;
+  display: block;
+  width: 100%;
+  margin-top: 1rem;
 }
 
 .close-icon {
@@ -199,6 +212,13 @@ a:hover {
   flex-direction: column;
   align-items: left;
   justify-content: left;
+}
+
+/* Ensure the form inside the white box scrolls if content grows, and leaves room for the submit button */
+.popup-box .box form {
+  display: block;
+  gap: 1rem;
+  padding-bottom: 1rem; /* ensures inputs don't sit flush against the button */
 }
 
 /* Dropdown in top nav */

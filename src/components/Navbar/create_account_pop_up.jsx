@@ -36,7 +36,7 @@ function validation(username, password, confirmPassword) {
     hasNumber &&
     hasSpecialChar &&
     passwordMatch(password, confirmPassword) &&
-    username.length > 0
+    username.trim().length > 0
   );
 }
 
@@ -44,30 +44,45 @@ function Popup({ togglePopup }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [error, setError] = useState("");
+  const [errorField, setErrorField] = useState("");
+  const errorStyle = {
+    background: "#fff5f5",
+    border: "1px solid #f5c2c7",
+    color: "#842029",
+    padding: "8px 10px",
+    borderRadius: 6,
+    fontSize: 13,
+    marginTop: 6,
+  };
 
-  function handleCreateAccount(valid) {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (username.trim().length === 0) {
+      setError("Username cannot be empty.");
+      setErrorField("username");
+      return;
+    }
+    if (!passwordMatch(password, confirmPassword)) {
+      setError("Passwords do not match.");
+      setErrorField("confirmPassword");
+      return;
+    }
+    if (!validation(username, password, confirmPassword)) {
+      setError(
+        "Password must be at least 8 characters and include uppercase, lowercase, a number, and a special character."
+      );
+      setErrorField("password");
+      return;
+    }
+
+    // success
+    setError("");
+    setErrorField("");
     console.log("Username:", username);
     console.log("Password:", password);
-
-    if (valid) {
-      togglePopup();
-    } else if (!passwordMatch(password, confirmPassword)) {
-      alert("Password must match.");
-    } else if (password.length < 8) {
-      alert("Password must be at least 8 characters long.");
-    } else if (
-      !/[A-Z]/.test(password) ||
-      !/[a-z]/.test(password) ||
-      !/[0-9]/.test(password) ||
-      !/[!@#$%^&*(),.?":{}|<>]/.test(password)
-    ) {
-      alert(
-        "Password must contain at least one uppercase letter, lowercase letter, number, and special character."
-      );
-    } else if (username.length === 0) {
-      alert("Username cannot be empty.");
-    }
-  }
+    togglePopup();
+  };
 
   return (
     <div className="create-account-backdrop">
@@ -75,22 +90,36 @@ function Popup({ togglePopup }) {
         <div className="box">
           <span className="close-icon" onClick={togglePopup}>
             x
-          </span>
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              handleCreateAccount(
-                validation(username, password, confirmPassword)
-              );
-            }}
-          >
+          </span>          
+
+
+          <h2>Create Account</h2>
+          <form onSubmit={handleSubmit}>
             <label>
               <p>Username:</p>
               <input
                 type="text"
                 value={username}
-                onChange={(e) => setUsername(e.target.value)}
+                onChange={(e) => {
+                  setUsername(e.target.value);
+                  if (errorField === "username") {
+                    setError("");
+                    setErrorField("");
+                  }
+                }}
+                aria-invalid={errorField === "username"}
+                aria-describedby={errorField === "username" ? "username-error" : undefined}
+                style={
+                  errorField === "username"
+                    ? { borderColor: "#dc3545", boxShadow: "0 0 0 3px rgba(220,53,69,0.08)" }
+                    : undefined
+                }
               />
+              {errorField === "username" && error && (
+                <div id="username-error" role="alert" style={errorStyle}>
+                  {error}
+                </div>
+              )}
             </label>
             <br />
             <label>
@@ -98,8 +127,26 @@ function Popup({ togglePopup }) {
               <input
                 type="password"
                 value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                  if (errorField === "password") {
+                    setError("");
+                    setErrorField("");
+                  }
+                }}
+                aria-invalid={errorField === "password"}
+                aria-describedby={errorField === "password" ? "password-error" : undefined}
+                style={
+                  errorField === "password"
+                    ? { borderColor: "#dc3545", boxShadow: "0 0 0 3px rgba(220,53,69,0.08)" }
+                    : undefined
+                }
               />
+              {errorField === "password" && error && (
+                <div id="password-error" role="alert" style={errorStyle}>
+                  {error}
+                </div>
+              )}
             </label>
             <br />
             <label>
@@ -107,9 +154,28 @@ function Popup({ togglePopup }) {
               <input
                 type="password"
                 value={confirmPassword}
-                onChange={(e) => setConfirmPassword(e.target.value)}
+                onChange={(e) => {
+                  setConfirmPassword(e.target.value);
+                  if (errorField === "confirmPassword") {
+                    setError("");
+                    setErrorField("");
+                  }
+                }}
+                aria-invalid={errorField === "confirmPassword"}
+                aria-describedby={errorField === "confirmPassword" ? "confirmPassword-error" : undefined}
+                style={
+                  errorField === "confirmPassword"
+                    ? { borderColor: "#dc3545", boxShadow: "0 0 0 3px rgba(220,53,69,0.08)" }
+                    : undefined
+                }
               />
+              {errorField === "confirmPassword" && error && (
+                <div id="confirmPassword-error" role="alert" style={errorStyle}>
+                  {error}
+                </div>
+              )}
             </label>
+
             <br />
             <button type="submit">Create Account</button>
           </form>
