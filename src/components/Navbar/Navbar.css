@@ -22,10 +22,10 @@
 
 .top_nav {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap:nowrap;
   position: fixed;
   align-items: center;
-  justify-content: left;
+  justify-content: flex-start;
 
   top: 0;
   left: 0;
@@ -42,7 +42,7 @@
 }
 
 a {
-  padding: 20px 20px;
+  padding: 10px 20px;
   color: var(--secondary_text);
   text-decoration: none;
   transition: background-color 0.3s;
@@ -79,7 +79,15 @@ a:hover {
 }
 
 .nav_gap{
-  flex-grow: 4;
+  flex-grow: 1;
+}
+
+.nav-links{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  width:100%;
 }
 
 /* Login */
@@ -146,7 +154,7 @@ a:hover {
 
 .login-backdrop label,
 .create-account-backdrop label {
-  display: block;
+  display: flex;
   align-items: left;
   justify-content: left;
   margin-bottom: 0.5rem;
@@ -206,11 +214,11 @@ a:hover {
   transition: background-color 0.3s ease;
 }
 
-.login-popup-wrapper,
-.create-account-popup-wrapper {
-display: flex;
-justify-content: flex-end;
-align-items: flex-end;
+.auth-btn{
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-left: auto;
 }
 
 /* Dropdown in top nav */
@@ -249,4 +257,58 @@ align-items: flex-end;
 
 .dropdown:hover .dropdown-content {
   display: block;
+}
+
+/*hamburger icon*/
+
+.hamburger {
+  display: none;
+  background-color: transparent;
+  border: none;
+}
+.hamburger img {
+  display: none;
+  cursor: pointer;
+  width:30px;
+  height:30px;
+
+}
+
+@media (max-width: 768px) {
+   .hamburger {
+    display: flex;
+    justify-content: flex-end;
+    margin-left:auto;
+  }
+
+  .hamburger img{
+    display: flex;
+    justify-content: flex-end;
+    margin-left:auto;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px; 
+    left: 0;
+    width: 100%;
+    background-color: white;
+    border-top: 1px solid #ddd;
+    z-index: 10;
+  }
+  .nav-links.open {
+    display: flex;
+  }
+  .nav-links a {
+    padding: 1rem;
+    border-bottom: 1px solid #ddd;
+    width:100%;
+    text-align: center;
+  }
+  
+  .top_nav > a {
+    display: none;
+  }
 }

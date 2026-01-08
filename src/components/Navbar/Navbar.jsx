@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from 'react';
 import { Routes, Route, Link } from "react-router-dom";
 import "./Navbar.css";
 import Home from "../../pages/home.jsx";
@@ -11,19 +11,9 @@ import Tracker from "../../pages/tracker.jsx";
 import CreateAccountPopup from "./create_account_pop_up.jsx";
 import ham_menu from "../../assets/menu_icon.svg"
 
-function hamburger_menu(){
-  const[seen, setseen]= usestate(false);
-  const toggle_menu = () => setseen((s) => !s);
-
-  return( 
-    <div className="burger_wrapper">
-      <img scr={ham_menu} alt="hambuger menu" className="ham_menu"/>
-    </div>
-  )
-
-}
-
-const Navbar = () => {
+function Navbar() {
+  const[isOpen,setIsOpen] = useState(false);
+  const toggleMenu = () => setIsOpen(!isOpen);
   return (
     <>
       <nav className="top_nav">
@@ -33,15 +23,28 @@ const Navbar = () => {
             <label htmlFor="home"></label>
           </Link>
         </div>
-        <Link to="home">Home</Link>
-        <Link to="booking">Booking</Link>
-        <NavDropdown/>
-        <div className="nav_gap"/>
-        <LoginPopup/>
-        <CreateAccountPopup/>
+
+        <button className = "hamburger" onClick = {toggleMenu} aria-label="Toggle menu" aria-expanded = {isOpen}>
+          <img src={ham_menu} alt="menu icon"/>
+        </button>
+
+        <div className = {isOpen ? "nav-links open" : "nav-links"}>
+          <Link to="home">Home</Link>
+          <Link to="booking">Booking</Link>
+          <Link to="test">test</Link>
+          <NavDropdown/>
+
+          <div className="auth-btn">
+            <LoginPopup/>
+            <CreateAccountPopup/>
+          </div>
+
+        </div>
+
+
+
       </nav>
-
-
+      
       <Routes>
         <Route path="home" element={<Home />} />
         <Route path="booking" element={<Booking />} />
