@@ -33,11 +33,20 @@ body {
     padding-top: 60px;
 }
 
-.background_image {
-    position: fixed;
+.background_image{
+    position: absolute;
     top: -35rem;
     left: 0;
     width: 100%;
+    height: auto;
+    z-index: -1;
+}
+
+.background_semi_circle {
+    position: absolute;
+    bottom: -35rem;
+    left: 0rem;
+    width:100%;
     height: auto;
     z-index: -1;
 }
@@ -57,14 +66,14 @@ body {
 
 @media screen and (max-width: 1280px){
     .background_image {
-        top: -35rem;
+        top: -32rem;
     }
   
 }
 
 @media screen and ((max-width: 1024px)){
     .background_image {
-        top: 0rem;
+        top: -27rem;
     }
   
 }
@@ -89,3 +98,4 @@ body {
     }
   
 }
+

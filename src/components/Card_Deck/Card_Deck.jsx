@@ -4,20 +4,16 @@ import solar_panel_green from '../../assets/solar_panel_green.svg';
 import green_car from '../../assets/green_car.svg';
 import green_house from '../../assets/green_house.svg';
 
-
-function Card() {
+export default function Card_Deck({className}) {
   return (
-    <>
-      <div className="card_container">
+
+      <div className={`card_container ${className || ''}`}>
 
         <div className="card_section">
-
           <div className="top_card_1">
             <img src={solar_panel_green} alt="solar_panel_green" className="solar_panel_green"/>
           </div>
-
           <div className="card_desc">Card deck 1</div>
-
         </div>
 
         <div className="card_section">
@@ -35,8 +31,7 @@ function Card() {
         </div>
 
       </div>
-    </>
+
   );
 }
 
-export default Card;
