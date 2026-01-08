@@ -31,17 +31,13 @@ function Navbar() {
         <div className = {isOpen ? "nav-links open" : "nav-links"}>
           <Link to="home">Home</Link>
           <Link to="booking">Booking</Link>
-          <Link to="test">test</Link>
           <NavDropdown/>
 
           <div className="auth-btn">
             <LoginPopup/>
             <CreateAccountPopup/>
           </div>
-
         </div>
-
-
 
       </nav>
       

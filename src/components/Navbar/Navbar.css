@@ -33,7 +33,6 @@
   width: 100%;
 
   background-color: var(--accent_colour);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
   padding: 0px 15px;
   z-index: 1000;
@@ -57,7 +56,6 @@ a:hover {
 .logo {
   display: flex;
   align-items: center;
-  padding: 8px 20px;
   box-sizing: border-box;
   background-color: transparent;
   transition: background-color 0.3s;
@@ -69,12 +67,12 @@ a:hover {
 }
 
 .logo img {
-  width: 2.5rem;
+  padding: 0;
+  width: 2rem;
   transition: transform 0.3s ease;
 }
 
 .logo img:hover {
-  transform: scale(1.3);
   cursor: pointer;
 }
 
@@ -225,6 +223,7 @@ a:hover {
 
 .dropbtn {
   padding: 20px 20px;
+  width: auto;
   background-color: var(--accent_colour);
   border: none;
   text-decoration: none;
@@ -275,6 +274,7 @@ a:hover {
 }
 
 @media (max-width: 768px) {
+  
    .hamburger {
     display: flex;
     justify-content: flex-end;
@@ -287,28 +287,80 @@ a:hover {
     margin-left:auto;
   }
 
+  .nav-links .dropdown {
+    display: block; 
+    width: 100%;
+  }
+
+  .nav-links .dropbtn {
+    width: 100%;
+    padding: 1rem 20px;
+    box-sizing: border-box; 
+    text-align: center; 
+    background-color: var(--accent_colour);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .nav-links .dropbtn:hover {
+    background-color: var(--secondary_colour);
+  }
+
+  .dropdown-content {
+    position: static;
+    width: 100%;
+    box-shadow: none;
+    background-color: var(--secondary_colour);
+    transition: background-color 0.3 ease;
+  }
+
+  .dropdown-content a{
+    background-color: var(--accent_colour);
+  }
+
+  
   .nav-links {
     display: none;
     flex-direction: column;
     position: absolute;
-    top: 60px; 
+    top: 50px;
     left: 0;
     width: 100%;
-    background-color: white;
-    border-top: 1px solid #ddd;
+    background-color: var(--accent_colour);
     z-index: 10;
+    transition: background-color 0.3s;
   }
+
+
   .nav-links.open {
     display: flex;
   }
+
   .nav-links a {
     padding: 1rem;
-    border-bottom: 1px solid #ddd;
     width:100%;
     text-align: center;
+    transition: background-color 0.3s;
+  }
+
+   .nav-links a:hover{
+    background-color:var(--secondary_colour);
+
   }
   
   .top_nav > a {
     display: none;
   }
+
+  .auth-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+    margin-left: 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
 }
