@@ -1,0 +1,81 @@
+:root{
+    --primary_colour: #A7C957;
+    --secondary_colour: #BDD781;
+    --accent_colour: #F2E8CF;
+
+    --primary_text: #386641;
+    --secondary_text: #181818;
+    --accent_text: #ffffff;
+
+    --card_colour_1: #479DBC;
+    --card_colour_2: #408EAA;
+    --card_colour_3: #35768D;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: bold;
+}
+
+
+.stat_circle_svg{
+    position:absolute;
+    top:17%;
+    left:18%;
+    width:60%;
+    height:60%;
+    padding: 15px;
+}
+
+
+@media screen and (max-width: 2545px) {
+    .background_image {
+        top: -55rem;
+    }
+}
+
+@media screen and (min-width: 1920px) {
+    .background_image {
+        top: -75rem;
+    }
+  
+}
+
+@media screen and (max-width: 1280px){
+    .background_image {
+        top: -32rem;
+    }
+  
+}
+
+@media screen and ((max-width: 1024px)){
+    .background_image {
+        top: -27rem;
+    }
+  
+}
+
+@media screen and (min-width: 820px) and (max-width: 912px) {
+    .background_image {
+        top: 0rem;
+    }
+  
+}
+
+@media screen and (max-width: 768px) {
+    .background_image {
+        top: 0rem;
+    }
+  
+}
+
+@media screen and (max-width: 480px) {
+    .background_image {
+        top: 0rem;
+    }
+  
+}
+

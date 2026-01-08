@@ -1,0 +1,38 @@
+:root{
+    --primary_colour: #A7C957;
+    --secondary_colour: #BDD781;
+    --accent_colour: #F2E8CF;
+
+    --primary_text: #386641;
+    --secondary_text: #181818;
+    --accent_text: #ffffff;
+
+    --card_colour_1: #479DBC;
+    --card_colour_2: #408EAA;
+    --card_colour_3: #35768D;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: bold;
+}
+
+body {
+    background-color: var(--secondary_colour);
+    color: var(--primary_text);
+    padding-top: 60px;
+}
+
+.card_container.home-card-deck {
+  margin-top: 50%;
+}
+
+h2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}

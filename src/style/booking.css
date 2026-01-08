@@ -127,7 +127,8 @@
 }
 
 .nameInput,
-.emailInput {
+.emailInput,
+.addressInput {
   grid-column: auto;
 }
 
@@ -137,7 +138,8 @@
 
 .nameInput,
 .emailInput,
-.phoneInput {
+.phoneInput,
+.addressInput {
   width: 100%;
   padding: 12px;
   margin: 0;

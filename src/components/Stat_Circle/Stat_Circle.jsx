@@ -1,13 +1,16 @@
 import React from "react"
-import { Routes, Route, Link } from "react-router-dom"
 import "./Stat_Circle.css"
+import Stat_Circle_svg from "../../assets/stat_circle.svg"
 
-function Stat_Circle() {
+export default function Stat_Circle({className}){
   return (
     <>
-      <div>Stat Circle Component</div>
+      <div className={`circle_selection ${className || ''}`}>
+          <img src={Stat_Circle_svg} alt="stat_circle_svg" className="stat_circle_svg"/>
+      </div>
+
+
     </>
   );
 }
 
-export default Stat_Circle;

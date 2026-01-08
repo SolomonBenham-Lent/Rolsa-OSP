@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from 'react';
 import { Routes, Route, Link } from "react-router-dom";
 import "./Navbar.css";
 import Home from "../../pages/home.jsx";
@@ -9,8 +9,11 @@ import LoginPopup from "./Login_pop_up.jsx";
 import NavDropdown from "./drop_down.jsx";
 import Tracker from "../../pages/tracker.jsx";
 import CreateAccountPopup from "./create_account_pop_up.jsx";
+import ham_menu from "../../assets/menu_icon.svg"
 
-const Navbar = () => {
+function Navbar() {
+  const[isOpen,setIsOpen] = useState(false);
+  const toggleMenu = () => setIsOpen(!isOpen);
   return (
     <>
       <nav className="top_nav">
@@ -21,13 +24,23 @@ const Navbar = () => {
           </Link>
         </div>
 
-        <Link to="home">Home</Link>
-        <Link to="booking">Booking</Link>
-        <NavDropdown />
-        <LoginPopup />
-        <CreateAccountPopup />
-      </nav>
+        <button className = "hamburger" onClick = {toggleMenu} aria-label="Toggle menu" aria-expanded = {isOpen}>
+          <img src={ham_menu} alt="menu icon"/>
+        </button>
 
+        <div className = {isOpen ? "nav-links open" : "nav-links"}>
+          <Link to="home">Home</Link>
+          <Link to="booking">Booking</Link>
+          <NavDropdown/>
+
+          <div className="auth-btn">
+            <LoginPopup/>
+            <CreateAccountPopup/>
+          </div>
+        </div>
+
+      </nav>
+      
       <Routes>
         <Route path="home" element={<Home />} />
         <Route path="booking" element={<Booking />} />
