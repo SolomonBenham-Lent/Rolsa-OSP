@@ -1,0 +1,410 @@
+:root {
+  --primary_colour: #a7c957;
+  --secondary_colour: #bdd781;
+  --accent_colour: #f2e8cf;
+
+  --primary_text: #386641;
+  --secondary_text: #181818;
+  --accent_text: #ffffff;
+
+  --card_colour_1: #479dbc;
+  --card_colour_2: #408eaa;
+  --card_colour_3: #35768d;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-weight: bold;
+}
+
+.top_nav {
+  display: flex;
+  flex-wrap:nowrap;
+  position: fixed;
+  align-items: center;
+  justify-content: flex-start;
+
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+
+  background-color: var(--accent_colour);
+
+  padding: 0px 15px;
+  z-index: 1000;
+  gap: 1rem;
+  overflow: visible;
+}
+
+a {
+  padding: 10px 20px;
+  color: var(--secondary_text);
+  text-decoration: none;
+  transition: background-color 0.3s;
+  box-sizing: border-box;
+}
+
+a:hover {
+  background-color: var(--secondary_colour);
+  cursor: pointer;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  background-color: transparent;
+  transition: background-color 0.3s;
+  cursor: pointer;
+}
+
+.logo:hover {
+  background-color: var(--secondary_colour);
+}
+
+.logo img {
+  padding: 0;
+  width: 2rem;
+  transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+  cursor: pointer;
+}
+
+.nav_gap{
+  flex-grow: 1;
+}
+
+.nav-links{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  width:100%;
+}
+
+/* Login */
+
+.popup-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  padding: 1rem 1.25rem;
+  margin-top: 15rem;
+  background: var(--accent_colour);
+  box-shadow: 0 0px 8px rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+
+  width: 30rem;
+  max-width: calc(100% - 2rem);
+  /* allow the popup to size to its content up to viewport height */
+  max-height: calc(100vh - 2rem);
+  z-index: 1000;
+}
+
+.popup-box .box {
+  position: relative;
+  background-color: var(--accent_text);
+  padding: 1rem 1.25rem;
+  border-radius: 8px;
+
+  width: 30rem;
+  max-width: calc(100% - 2rem);
+  /* let box grow to fit its contents */
+  max-height: calc(100vh - 4rem);
+}
+
+/* The white box uses normal flow; form is non-scrolling so all fields remain visible */
+.popup-box .box {
+  display: block;
+}
+
+.popup-box .box form button[type="submit"] {
+  position: static;
+  display: block;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.close-icon {
+  position: absolute;
+  right: 10px;
+  top: 0px;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.login-backdrop,
+.create-account-backdrop {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 1100;
+  padding: 1rem;
+}
+
+.login-backdrop .popup-box,
+.create-account-backdrop .popup-box {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: var(--secondary_text);
+  max-height: calc(100vh - 2rem);
+}
+
+.login-backdrop label,
+.create-account-backdrop label {
+  display: flex;
+  align-items: left;
+  justify-content: left;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: var(--secondary_text);
+}
+
+.login-backdrop input,
+.create-account-backdrop input {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.login-backdrop button,
+.create-account-backdrop button {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: var(--primary_colour);
+  color: var(--secondary_text);
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+
+}
+
+.login-backdrop p,
+.create-account-backdrop p {
+  display: flex;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: var(--secondary_text);
+}
+
+.login-backdrop form,
+.create-account-backdrop form {
+  height: 100%;
+  gap: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: left;
+}
+.login-btn,
+.create-account-btn {
+  align-items: flex-end;
+  background-color: var(--primary_colour);
+  color: var(--secondary_text);
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.auth-btn{
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-left: auto;
+}
+
+/* Ensure the form inside the white box scrolls if content grows, and leaves room for the submit button */
+.popup-box .box form {
+  display: block;
+  gap: 1rem;
+  padding-bottom: 1rem; /* ensures inputs don't sit flush against the button */
+}
+
+/* Dropdown in top nav */
+
+.dropbtn {
+  padding: 20px 20px;
+  width: auto;
+  background-color: var(--accent_colour);
+  border: none;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: var(--accent_colour);
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+.dropdown-content a {
+  padding: 15px 20px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropbtn:hover {
+  background-color: var(--secondary_colour);
+  cursor: pointer;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/*hamburger icon*/
+
+.hamburger {
+  display: none;
+  background-color: transparent;
+  border: none;
+}
+.hamburger img {
+  display: none;
+  cursor: pointer;
+  width:30px;
+  height:30px;
+
+}
+
+@media (max-width: 768px) {
+  
+   .hamburger {
+    display: flex;
+    justify-content: flex-end;
+    margin-left:auto;
+  }
+
+  .hamburger img{
+    display: flex;
+    justify-content: flex-end;
+    margin-left:auto;
+  }
+
+  .nav-links .dropdown {
+    display: block; 
+    width: 100%;
+  }
+
+  .nav-links .dropbtn {
+    width: 100%;
+    padding: 1rem 20px;
+    box-sizing: border-box; 
+    text-align: center; 
+    background-color: var(--accent_colour);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .nav-links .dropbtn:hover {
+    background-color: var(--secondary_colour);
+  }
+
+  .dropdown-content {
+    position: static;
+    width: 100%;
+    box-shadow: none;
+    background-color: var(--secondary_colour);
+    transition: background-color 0.3 ease;
+  }
+
+  .dropdown-content a{
+    background-color: var(--accent_colour);
+  }
+
+  
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 100%;
+
+    /* Ensure labels and their paragraphs stack above inputs inside the popup */
+    .popup-box .box label {
+      display: block;
+      width: 100%;
+    }
+    .popup-box .box label p {
+      margin: 0 0 0.5rem 0;
+      font-weight: 700;
+    }
+    .popup-box .box label input,
+    .popup-box .box label select {
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    /* Add consistent spacing between form rows to prevent overlap */
+    .popup-box .box form > label {
+      margin-bottom: 1rem;
+    }
+
+    /* Ensure the submit button sits after inputs with space */
+    .popup-box .box form button[type="submit"] {
+      margin-top: 1.5rem;
+    }
+    background-color: var(--accent_colour);
+    z-index: 10;
+    transition: background-color 0.3s;
+  }
+
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links a {
+    padding: 1rem;
+    width:100%;
+    text-align: center;
+    transition: background-color 0.3s;
+  }
+
+   .nav-links a:hover{
+    background-color:var(--secondary_colour);
+
+  }
+  
+  .top_nav > a {
+    display: none;
+  }
+
+  .auth-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+    margin-left: 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+}

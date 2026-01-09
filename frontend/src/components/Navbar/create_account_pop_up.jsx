@@ -55,6 +55,7 @@ function Popup({ togglePopup }) {
     borderRadius: 6,
     fontSize: 13,
     marginTop: 6,
+    width : "100%"
   };
 
   const handleSubmit = (e) => {

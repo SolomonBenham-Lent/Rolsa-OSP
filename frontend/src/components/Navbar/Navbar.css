@@ -90,6 +90,17 @@ a:hover {
 
 /* Login */
 
+
+.popup-box .box label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.popup-box label p {
+  margin: 0 0 6px 0;
+}
+
 .popup-box {
   display: flex;
   justify-content: center;
