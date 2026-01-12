@@ -10,6 +10,7 @@ import NavDropdown from "./drop_down.jsx";
 import Tracker from "../../pages/tracker.jsx";
 import CreateAccountPopup from "./create_account_pop_up.jsx";
 import ham_menu from "../../assets/menu_icon.svg"
+import Tips from '../../pages/tips.jsx';
 
 function Navbar() {
   const[isOpen,setIsOpen] = useState(false);
@@ -46,6 +47,7 @@ function Navbar() {
         <Route path="booking" element={<Booking />} />
         <Route path="calculator" element={<Calculator />} />
         <Route path="tracker" element={<Tracker />} />
+        <Route path="tips" element={<Tips />} />
       </Routes>
     </>
   );

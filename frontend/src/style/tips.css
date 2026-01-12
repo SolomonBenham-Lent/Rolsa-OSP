@@ -1,0 +1,53 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: bold;
+}
+
+.tipsContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.tips_spacer {
+    padding: 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.tip-card {
+    background-color: #ffffff;
+    border: 1px solid rgba(0,0,0,0.06);
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
+
+.tip-title {
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+    font-weight: bold;
+    margin-top: 16px;
+}
+
+.tip-list {
+    font-size: 1rem;
+    margin-top: 16px;
+    padding-left: 1rem;
+    font-weight: 300;
+    color: black;
+}
+
+.tip-list li {
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+.tip-list li::marker {
+    font-weight: bold;
+    color: #386641;
+}

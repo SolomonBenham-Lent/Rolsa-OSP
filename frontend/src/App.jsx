@@ -11,11 +11,15 @@ import semi_circle from "./assets/semi_circle.svg"
 const App = () => {
   return (
     <div>
-      <Navbar/>
-      <img src={background_shape_1} alt="background" className="background_image"/>
-      
-      <img src={semi_circle} alt="semi circle background" className="background_semi_circle"/>
-      <Footerbar/>
+      <div>
+        <Navbar/>
+        <img src={background_shape_1} alt="background" className="background_image"/>
+      </div>
+
+      <footer>
+        <Footerbar/>
+      </footer>
+
     </div>
   )
 }
