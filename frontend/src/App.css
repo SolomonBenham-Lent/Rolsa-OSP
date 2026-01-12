@@ -1,8 +1,7 @@
 #root {
-  max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
+  min-height: 100vh;
 }
 
 :root{
@@ -31,6 +30,9 @@ body {
     background-color: var(--secondary_colour);
     color: var(--primary_text);
     padding-top: 60px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .background_image{
@@ -38,15 +40,6 @@ body {
     top: -35rem;
     left: 0;
     width: 100%;
-    height: auto;
-    z-index: -1;
-}
-
-.background_semi_circle {
-    position: absolute;
-    bottom: -35rem;
-    left: 0rem;
-    width:100%;
     height: auto;
     z-index: -1;
 }
@@ -99,3 +92,9 @@ body {
   
 }
 
+@media screen and (max-width: 412px) {
+    .background_image {
+        top: 1rem;
+    }
+  
+}
