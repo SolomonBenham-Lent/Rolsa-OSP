@@ -28,9 +28,9 @@
 /* Main Booking Container */
 .bookingContainer {
   max-width: 900px;
-  margin: 0 auto;
+  margin: 20px auto 20px auto;
   padding: 40px 20px;
-  background-color: #f5f5f5;
+  background-color: var(--input-bg);
   border-radius: 10px;
 }
 
@@ -54,9 +54,10 @@
   margin-top: 0;
   font-size: 1.5em;
   font-weight: bold;
-  color: #386641;
+  color: var(--primary_colour);
   width: 100%;
   order: 1;
+  font-weight: 800;
 }
 
 .solarButton,
@@ -66,7 +67,7 @@
   width: 180px;
   height: 60px;
   background-color: var(--product-button-bg);
-  color: #333;
+  color: var(--primary_text);
   padding: 0;
   border: 2px solid #999;
   border-radius: 6px;
@@ -78,6 +79,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  font-weight: 600;
 }
 
 .solarButton:hover,
@@ -113,9 +115,10 @@
   margin-top: 0;
   font-size: 1.5em;
   font-weight: bold;
-  color: #386641;
+  color: var(--primary_colour);
   width: 100%;
   order: -1;
+  font-weight: 800;
 }
 
 .infoInputWrapper {
@@ -147,6 +150,7 @@
   border: 2px solid var(--input-border);
   border-radius: 6px;
   background-color: var(--input-bg);
+  color:var(--primary_text);
   font-size: 1em;
   font-family: inherit;
   transition: border-color 0.2s ease;
@@ -176,6 +180,7 @@
   border: 2px solid var(--input-border);
   border-radius: 6px;
   background-color: var(--input-bg);
+  color: var(--primary_text);
   font-size: 1em;
   font-family: inherit;
   transition: border-color 0.2s ease;
@@ -197,8 +202,11 @@
 }
 /*book*/
 .bookButton {
-  background-color: var(--primary_text);
-  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--secondary_colour);
+  color: var(--secondary_text);
   padding: 12px 30px;
   border: none;
   border-radius: 6px;
@@ -206,12 +214,11 @@
   font-size: 1em;
   font-weight: 600;
   transition: background-color 0.2s ease;
-  margin-top: 20px;
   width: 100%;
 }
 
 .bookButton:hover {
-  background-color: var(--secondary_colour);
+  background-color: var(--primary_colour);
 }
 
 .bookButton:active {
