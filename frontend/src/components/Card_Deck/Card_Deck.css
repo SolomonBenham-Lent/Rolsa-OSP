@@ -38,8 +38,14 @@
     width: 12rem;
     background-color: var(--accent_colour);
     border-radius: 15px;
+    transition: transform 0.3s;
+    position: relative;
 }
-
+.card_section:hover {
+    transform: translateY(-10px);
+    background-color: var(--accent_text);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 .top_card_1, .top_card_2, .top_card_3 {
     display: flex;
     justify-content: center;

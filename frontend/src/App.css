@@ -73,7 +73,7 @@ body {
 
 @media screen and (min-width: 820px) and (max-width: 912px) {
     .background_image {
-        top: 0rem;
+        top: -8rem;
     }
   
 }
