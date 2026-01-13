@@ -22,13 +22,27 @@
     font-weight: bold;
 }
 
+h1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
 .calcContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   max-width: 1000px;
   margin: auto;
   padding: 20px;
   border: 1px solid #ddd;
   border-radius: 8px;
   background-color: #f9f9f9;
+  color: var(--primary_text);
+  font-weight: 800;
+  font-size: 18px;
 }
 
 .calcInput {
@@ -47,6 +61,9 @@
 }
 
 .calcButton {
+  display: flex;
+  width: 100%;
+  justify-content: center;
   background-color: var(--secondary_colour);
   color: var(--secondary_text);
   padding: 10px 20px;
@@ -54,6 +71,7 @@
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.2s;
+  font-size: 18px;
 }
 
 .calcButton:hover {
@@ -89,10 +107,6 @@
   background-color: #f9f9f9;
 }
 
-.calc_spacer {
-  margin-top: 15rem;
-}
-
-.calc_spacer h1 {
-  padding: 20px;
+.calc_spacer{
+  height: 8.5rem;
 }

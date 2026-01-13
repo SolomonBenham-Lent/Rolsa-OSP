@@ -115,7 +115,6 @@ function Calculator() {
 
   return (
     <>
-      <div className="calc_spacer">
         <h1>Calculator Page</h1>
         <div className="calcContainer">
           <Input
@@ -157,7 +156,7 @@ function Calculator() {
             setMeals={setMeals}
           />
         </div>
-      </div>
+       <div className="calc_spacer"/>
     </>
   );
 }
