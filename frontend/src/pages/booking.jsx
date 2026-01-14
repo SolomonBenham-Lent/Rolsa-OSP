@@ -174,57 +174,88 @@ function Booking() {
   const [address, setAddress] = useState("");
   const [datetime, setDatetime] = useState("");
 
+  const[toggleState,setToggleState] = useState(1);
+  const toggleTab = (index) => {
+    setToggleState(index);
+  }
+
   return (
     <>
-      <div className="bookingContainer">
-        <h1>Booking page</h1>
-        <br />
-        <div className="productContainer">
-          <h2 className="productTitle">Select a Product</h2>
-          <SelectProduct
-            selectSolar={selectSolar}
-            setSelectSolar={setSelectSolar}
-            selectEV={selectEV}
-            setSelectEV={setSelectEV}
-            selectSmartHome={selectSmartHome}
-            setSelectSmartHome={setSelectSmartHome}
-          />
-        </div>
-        <br />
-        <div className="infoContainer">
-          <h2 className="infoTitle">Your Information</h2>
-          <Information
-            name={name}
-            setName={setName}
-            email={email}
-            setEmail={setEmail}
-            phone={phone}
-            setPhone={setPhone}
-          />
-        </div>
-        <br />
-        <div className="addressContainer">
-          <h2 className="addressTitle">Your Address</h2>
-          <Address address={address} setAddress={setAddress} />
-        </div>
-        <br />
-        <div className="scheduleContainer">
-          <br />
-          <h2 className="scheduleTitle">Schedule Consultation</h2>
-          <Schedule datetime={datetime} setDatetime={setDatetime} />
-        </div>
-        <br />
-        <Book
-          selectSolar={selectSolar}
-          selectEV={selectEV}
-          selectSmartHome={selectSmartHome}
-          name={name}
-          email={email}
-          phone={phone}
-          address={address}
-          datetime={datetime}
-        />
+    <div className="mainContainer">
+
+      <div className="block-tabs">
+        <div className={toggleState === 1 ? "tabs active-tabs" : "tabs"}
+        onClick={() => toggleTab(1)}>Booking</div>
+
+        <div className={toggleState === 2 ? "tabs active-tabs" : "tabs"}
+        onClick={() => toggleTab(2)}>View Bookings</div>
       </div>
+
+      <div className="content-tabs">
+
+        <div className={toggleState === 1 ? "content active-content" : "content"}>
+        <div className="bookingContainer">
+          <h1>Booking page</h1>
+          <br />
+          <div className="productContainer">
+            <h2 className="productTitle">Select a Product</h2>
+            <SelectProduct
+              selectSolar={selectSolar}
+              setSelectSolar={setSelectSolar}
+              selectEV={selectEV}
+              setSelectEV={setSelectEV}
+              selectSmartHome={selectSmartHome}
+              setSelectSmartHome={setSelectSmartHome}
+            />
+          </div>
+          <br />
+          <div className="infoContainer">
+            <h2 className="infoTitle">Your Information</h2>
+            <Information
+              name={name}
+              setName={setName}
+              email={email}
+              setEmail={setEmail}
+              phone={phone}
+              setPhone={setPhone}
+            />
+          </div>
+          <br />
+          <div className="addressContainer">
+            <h2 className="addressTitle">Your Address</h2>
+            <Address address={address} setAddress={setAddress} />
+          </div>
+          <br />
+          <div className="scheduleContainer">
+            <br />
+            <h2 className="scheduleTitle">Schedule Consultation</h2>
+            <Schedule datetime={datetime} setDatetime={setDatetime} />
+          </div>
+          <br />
+          <Book
+            selectSolar={selectSolar}
+            selectEV={selectEV}
+            selectSmartHome={selectSmartHome}
+            name={name}
+            email={email}
+            phone={phone}
+            address={address}
+            datetime={datetime}
+          />
+          </div>
+        </div>
+
+        <div className={toggleState === 2 ? "content active-content" : "content"}>
+          <div className="viewingContainer">
+          <h1>View Booking</h1>
+          <p>
+            testing tab
+          </p>
+        </div>
+        </div>
+
+      </div>
+    </div>
     </>
   );
 }

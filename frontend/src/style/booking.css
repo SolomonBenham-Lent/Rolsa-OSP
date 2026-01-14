@@ -17,7 +17,8 @@
   --section-bg: #f9f9f9;
 }
 
-* {
+*  , ::before, ::after {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -25,8 +26,112 @@
   font-weight: bold;
 }
 
+/* tab section */
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 500px;
+  height: 300px;
+  background: #f1f1f1;
+  margin: 0;
+  word-break: break-all;
+  border: 1px solid rgba(0, 0, 0, 0.274);
+}
+
+.bloc-tabs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px; 
+  width: 100%;
+}
+
+
+.tabs {
+  flex: 1;
+  padding: 15px;
+  text-align: center;
+  width: 100%;
+  background: rgba(128, 128, 128, 0.075);
+  cursor: pointer;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.274);
+  box-sizing: content-box;
+  position: relative;
+  outline: none;
+}
+
+.tabs:not(:last-child){
+  border-right: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.active-tabs{
+  background-color: var(--accent_colour);
+  border-bottom: 1px solid transparent;
+}
+.active-tabs::before{
+  content: "";
+  display: block;
+  position: absolute;
+  top:-5px;
+  left:50%;
+  transform: translateX(-50%);
+  width: calc(100% + 2px);
+  height:5px;
+  background-color: pink;
+}
+
+button{
+  border: none;
+}
+
+.content-tabs{
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.content {
+  text-align: center;
+  background-color: var(--accent_colour);
+  padding:20px;
+  max-width: 100%;
+  height: 100%;
+  display: none;
+}
+.content h1{
+  padding: 0px 0 5px 0;
+}
+
+.content hr {
+  width: 100px;
+  height: 2px;
+  background-color: tomato;
+  margin-bottom: 5px;
+}
+
+.content p{
+  width: 100%;
+  height: 100%;
+}
+
+.active-content {
+  display: block;
+}
+
 /* Main Booking Container */
-.bookingContainer {
+.bookingContainer, .viewingContainer {
   max-width: 900px;
   margin: 20px auto 20px auto;
   padding: 40px 20px;
