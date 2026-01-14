@@ -182,7 +182,6 @@ function Booking() {
   return (
     <>
     <div className="mainContainer">
-
       <div className="block-tabs">
         <div className={toggleState === 1 ? "tabs active-tabs" : "tabs"}
         onClick={() => toggleTab(1)}>Booking</div>
@@ -190,9 +189,7 @@ function Booking() {
         <div className={toggleState === 2 ? "tabs active-tabs" : "tabs"}
         onClick={() => toggleTab(2)}>View Bookings</div>
       </div>
-
       <div className="content-tabs">
-
         <div className={toggleState === 1 ? "content active-content" : "content"}>
         <div className="bookingContainer">
           <h1>Booking page</h1>

@@ -40,32 +40,30 @@
   justify-content: center;
   align-items: center;
   position: relative;
-  width: 500px;
+  width: 100%;
+  max-width: 900px;
   height: 300px;
   background: #f1f1f1;
-  margin: 0;
+  margin: 0 auto;
   word-break: break-all;
   border: 1px solid rgba(0, 0, 0, 0.274);
 }
 
-.bloc-tabs {
+.block-tabs {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px; 
-  width: 100%;
+  width: 36.3%;
+  margin: 0 auto;
+  gap: 0.5rem;
 }
 
 
 .tabs {
   flex: 1;
-  padding: 15px;
+  padding: 15px 20px;
   text-align: center;
-  width: 100%;
-  background: rgba(128, 128, 128, 0.075);
+  background-color: var(--input-bg);
   cursor: pointer;
   border-bottom: 1px solid rgba(0, 0, 0, 0.274);
-  box-sizing: content-box;
   position: relative;
   outline: none;
 }
@@ -78,6 +76,7 @@
   background-color: var(--accent_colour);
   border-bottom: 1px solid transparent;
 }
+
 .active-tabs::before{
   content: "";
   display: block;
@@ -85,9 +84,9 @@
   top:-5px;
   left:50%;
   transform: translateX(-50%);
-  width: calc(100% + 2px);
+  width: calc(100%);
   height:5px;
-  background-color: pink;
+  background-color: var(--card_colour_1);
 }
 
 button{
