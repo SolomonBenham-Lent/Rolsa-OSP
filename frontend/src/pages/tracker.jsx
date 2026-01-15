@@ -203,7 +203,7 @@ const Tracker = () => {
 
     <h3 style={{ marginTop: "12px" }}>All Entries</h3>
     {logs.length === 0 ? (
-        <div style={{ color: '#666', marginBottom: 12 }}>No entries yet.</div>
+        <div style={{ color: '#666', marginBottom: 60 }}>No entries yet.</div>
     ) : (
         (() => {
             const recent = logs.slice().reverse();
@@ -235,6 +235,7 @@ const Tracker = () => {
                                     <button type="button" onClick={() => handleDelete(log.id)} style={{ background: '#ff6b6b', color: '#fff', border: 'none', padding: '6px 8px', borderRadius: 4, cursor: 'pointer' }}>Delete</button>
                                 </div>
                             </div>
+
                         );
                     })}
                 </div>

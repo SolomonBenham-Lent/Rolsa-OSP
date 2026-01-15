@@ -11,15 +11,19 @@ function Home() {
 
       <div className="info_container">
         <h2 className="home_h2">Who are we?</h2>
+
         <div className="paragraph_container">
           <p>Rolsa Technology is a bright, eco‑friendly company
           that helps people make greener choices by offering
-          easy bookings for solar panel installations, EV
+          easy bookings <br/> for solar panel installations, EV
           charging stations, and smart home energy systems.</p>
         </div>
+        
       </div>
       
       <Card_Deck className = "home-card-deck"/>
+
+
     </>
   );
 }
