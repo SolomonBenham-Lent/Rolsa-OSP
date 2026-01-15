@@ -5,44 +5,31 @@ import { useEffect } from "react";
 function Profile() {
   const [readOnly, setReadOnly] = useState(true);
   const [fullNameState, setFullNameState] = useState("");
-  // 1. Create a "bucket" to hold our users. Starts empty array [].
+  const [emailState, setEmailState] = useState("");
+  const [phoneState, setPhoneState] = useState("");
   const [users, setUsers] = useState([]);
 
-  // 2. This runs automatically when the component "mounts" (loads)
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/users"); // Call the Flask waiter
-        const data = await response.json(); // Unwrap the JSON package
-        setUsers(data); // Put the data into our bucket (state)
-
+        const response = await fetch("http://localhost:5000/api/users");
+        const data = await response.json();
+        setUsers(data);
         if (data.length > 0) {
-          setFullNameState(data[0].fullName); // Set full name from the first user
+          setFullNameState(data[0].fullName);
+          setEmailState(data[0].email);
+          setPhoneState(data[0].phone);
           console.log(data[0].fullName);
         }
 
-        console.log(data); // Optional: log it to see if it worked
+        console.log(data);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
     };
 
     fetchData();
-  }, []); // The empty [] ensures this runs only once
-
-  const email = "johnDoe@email.com";
-  const phone = "123-456-7890";
-
-  console.log(users);
-
-  console.log(users.fullName);
-  const [emailState, setEmailState] = useState(email);
-  const [phoneState, setPhoneState] = useState(phone);
-
-  function updateDB(newName) {
-    // Placeholder for updating the database
-  }
-
+  }, []);
   return (
     <>
       <h1>Profile Page</h1>
@@ -58,6 +45,7 @@ function Profile() {
       <input
         type="text"
         id="userInfo"
+        placeholder="No e-mail"
         value={emailState}
         onChange={(e) => setEmailState(e.target.value)}
         readOnly={readOnly}
@@ -66,6 +54,7 @@ function Profile() {
       <input
         type="text"
         id="userInfo"
+        placeholder="No Phone Number"
         value={phoneState}
         onChange={(e) => setPhoneState(e.target.value)}
         readOnly={readOnly}

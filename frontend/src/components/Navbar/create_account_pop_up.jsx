@@ -2,6 +2,24 @@ import React, { useState } from "react";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
 
+const AddUser = async (username, email, password) => {
+  try {
+    const response = await fetch("http://localhost:5000/api/users", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ username, email, password }),
+    });
+    if (response.ok) {
+      alert("Successfully created account!");
+    } else {
+      alert("Failed to create account.");
+    }
+  } catch (error) {
+    console.error("Error adding user:", error);
+  }
+};
 
 function CreateAccountPopup({ onCreateAccountOpen }) {
   const [seen, setSeen] = useState(false);
@@ -41,8 +59,33 @@ function validation(username, password, confirmPassword) {
   );
 }
 
+function Input({ type, value, setter, errorName, errorField }) {
+  return (
+    <input
+      type={type}
+      value={value}
+      onChange={(e) => {
+        setter(e.target.value);
+      }}
+      aria-invalid={errorField === errorName}
+      aria-describedby={
+        errorField === errorName ? `${errorName}-error` : undefined
+      }
+      style={
+        errorField === errorName
+          ? {
+              borderColor: "#dc3545",
+              boxShadow: "0 0 0 3px rgba(220,53,69,0.08)",
+            }
+          : undefined
+      }
+    />
+  );
+}
+
 function Popup({ togglePopup }) {
   const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
@@ -55,7 +98,7 @@ function Popup({ togglePopup }) {
     borderRadius: 6,
     fontSize: 13,
     marginTop: 6,
-    width : "100%"
+    width: "100%",
   };
 
   const handleSubmit = (e) => {
@@ -82,8 +125,11 @@ function Popup({ togglePopup }) {
     setError("");
     setErrorField("");
     console.log("Username:", username);
+    console.log("Email:", email);
     console.log("Password:", password);
     togglePopup();
+
+    AddUser(username, email, password);
   };
 
   return (
@@ -92,30 +138,18 @@ function Popup({ togglePopup }) {
         <div className="box">
           <span className="close-icon" onClick={togglePopup}>
             x
-          </span>          
-
+          </span>
 
           <h2>Create Account</h2>
           <form onSubmit={handleSubmit}>
             <label>
               <p>Username:</p>
-              <input
+              <Input
                 type="text"
                 value={username}
-                onChange={(e) => {
-                  setUsername(e.target.value);
-                  if (errorField === "username") {
-                    setError("");
-                    setErrorField("");
-                  }
-                }}
-                aria-invalid={errorField === "username"}
-                aria-describedby={errorField === "username" ? "username-error" : undefined}
-                style={
-                  errorField === "username"
-                    ? { borderColor: "#dc3545", boxShadow: "0 0 0 3px rgba(220,53,69,0.08)" }
-                    : undefined
-                }
+                setter={setUsername}
+                errorName="username"
+                errorField={errorField}
               />
               {errorField === "username" && error && (
                 <div id="username-error" role="alert" style={errorStyle}>
@@ -125,24 +159,29 @@ function Popup({ togglePopup }) {
             </label>
             <br />
             <label>
+              <p>Email:</p>
+              <Input
+                type="text"
+                value={email}
+                setter={setEmail}
+                errorName="email"
+                errorField={errorField}
+              />
+              {errorField === "email" && error && (
+                <div id="email-error" role="alert" style={errorStyle}>
+                  {error}
+                </div>
+              )}
+            </label>
+            <br />
+            <label>
               <p>Password:</p>
-              <input
+              <Input
                 type="password"
                 value={password}
-                onChange={(e) => {
-                  setPassword(e.target.value);
-                  if (errorField === "password") {
-                    setError("");
-                    setErrorField("");
-                  }
-                }}
-                aria-invalid={errorField === "password"}
-                aria-describedby={errorField === "password" ? "password-error" : undefined}
-                style={
-                  errorField === "password"
-                    ? { borderColor: "#dc3545", boxShadow: "0 0 0 3px rgba(220,53,69,0.08)" }
-                    : undefined
-                }
+                setter={setPassword}
+                errorName="password"
+                errorField={errorField}
               />
               {errorField === "password" && error && (
                 <div id="password-error" role="alert" style={errorStyle}>
@@ -153,23 +192,12 @@ function Popup({ togglePopup }) {
             <br />
             <label>
               <p>Confirm Password:</p>
-              <input
+              <Input
                 type="password"
                 value={confirmPassword}
-                onChange={(e) => {
-                  setConfirmPassword(e.target.value);
-                  if (errorField === "confirmPassword") {
-                    setError("");
-                    setErrorField("");
-                  }
-                }}
-                aria-invalid={errorField === "confirmPassword"}
-                aria-describedby={errorField === "confirmPassword" ? "confirmPassword-error" : undefined}
-                style={
-                  errorField === "confirmPassword"
-                    ? { borderColor: "#dc3545", boxShadow: "0 0 0 3px rgba(220,53,69,0.08)" }
-                    : undefined
-                }
+                setter={setConfirmPassword}
+                errorName="confirmPassword"
+                errorField={errorField}
               />
               {errorField === "confirmPassword" && error && (
                 <div id="confirmPassword-error" role="alert" style={errorStyle}>
