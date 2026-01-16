@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
 import CreateAccountPopup from "./create_account_pop_up";
@@ -17,19 +17,46 @@ function LoginPopup() {
   );
 }
 
+function validation(username, password) {
+  if (username.length === 0 || password.length === 0) {
+    alert("Please fill in all fields.");
+    return false;
+  }
+}
+
 function Popup({ togglePopup }) {
   const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  function handleLogin(valid) {
-    console.log("Username:", username);
-    console.log("Password:", password);
-    if (valid){
-      togglePopup();
-    } else
-      alert("under progress need backend database")
+  const handleLogin = async (e) => {
+    e.preventDefault(); // Stop page reload
+
+    try {
+      // 1. Send username/password to Python
+      // Make sure this URL matches your Python route EXACTLY
+      const response = await fetch("http://localhost:5000/api/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username: username, password: password }), // Make sure these variables match your state
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        // Save user and redirect
+        sessionStorage.setItem("currentUser", JSON.stringify(data.user));
+        alert("Login Successful!");
+        togglePopup();
+        window.location.href = "/profile";
+      } else {
+        alert("Login Failed: " + (data.message || "Unknown error"));
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("Server error. Is Python running?");
     }
-  
+  };
 
   return (
     <div className="login-backdrop">
@@ -39,21 +66,23 @@ function Popup({ togglePopup }) {
             x
           </span>
 
-          <form 
-            onSubmit={(e) => {
-              e.preventDefault();
-              handleLogin(
-                validation(username, password)
-              );
-            }}
-          >
-
+          <form onSubmit={handleLogin}>
+            <h2>Login</h2>
             <label>
               <p>Username:</p>
               <input
                 type="text"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
+              />
+            </label>
+            <br />
+            <label>
+              <p>Email:</p>
+              <input
+                type="text"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </label>
             <br />

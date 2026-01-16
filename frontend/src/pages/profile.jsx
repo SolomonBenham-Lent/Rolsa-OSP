@@ -12,19 +12,17 @@ function Profile() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/users");
-        const data = await response.json();
-        setUsers(data);
-        if (data.length > 0) {
-          setFullNameState(data[0].fullName);
-          setEmailState(data[0].email);
-          setPhoneState(data[0].phone);
-          console.log(data[0].fullName);
-        }
+        const currentUser = JSON.parse(sessionStorage.getItem("currentUser"));
 
-        console.log(data);
+        if (currentUser) {
+          console.log("Current User:", currentUser);
+          setFullNameState(currentUser.fullName || "");
+          setEmailState(currentUser.email || "");
+          setPhoneState(currentUser.phone || "");
+          setUsers(currentUser);
+        }
       } catch (error) {
-        console.error("Error fetching data:", error);
+        console.error("Error parsing currentUser from sessionStorage:", error);
       }
     };
 

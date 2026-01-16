@@ -5,10 +5,16 @@ import Home from "../../pages/home.jsx";
 import Calculator from "../../pages/calculator.jsx";
 import Booking from "../../pages/booking.jsx";
 import logo from "../../assets/rolsa_logo.svg";
-import LoginPopup from "./Login_pop_up.jsx";
+
+//import LoginPopup from "./Login_pop_up.jsx";
+import LoginPopup from "./LoginPopup.jsx";
+
 import NavDropdown from "./drop_down.jsx";
 import Tracker from "../../pages/tracker.jsx";
-import CreateAccountPopup from "./create_account_pop_up.jsx";
+
+//import CreateAccountPopup from "./create_account_pop_up.jsx";
+import CreateAccountPopup from "./CreateAccountPopup.jsx";
+
 import ham_menu from "../../assets/menu_icon.svg";
 import Tips from "../../pages/tips.jsx";
 import Profile from "../../pages/profile.jsx";
